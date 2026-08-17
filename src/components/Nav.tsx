@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteProfile } from "@/content/site";
 import ThemeToggle from "./ThemeToggle";
 import { GithubIcon } from "./Icons";
-import { Terminal, Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navItems = [
   { href: "#pillars", label: "01//PILLARS" },
@@ -22,15 +23,22 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand / Callsign */}
+        {/* Brand / Callsign with NM Monogram Logo */}
         <div className="flex items-center gap-3 shrink-0">
           <Link
             href="/"
-            className="flex items-center gap-2 font-mono text-sm font-bold tracking-tight text-foreground transition-colors hover:text-cyan-primary whitespace-nowrap"
+            className="flex items-center gap-2.5 font-mono text-sm font-bold tracking-tight text-foreground transition-colors hover:text-cyan-primary whitespace-nowrap group"
           >
-            <span className="flex h-6 w-6 items-center justify-center rounded border border-cyan-primary/40 bg-cyan-primary/10 text-cyan-primary">
-              <Terminal className="h-3.5 w-3.5" />
-            </span>
+            <div className="relative flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-surface shadow-xs transition-transform group-hover:scale-105 group-hover:border-cyan-primary/50">
+              <Image
+                src="/nm_logo_bold_technical.png"
+                alt="NM Monogram Logo"
+                width={28}
+                height={28}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
             <span className="text-base font-bold tracking-tight">reaper<span className="text-cyan-primary">//</span>6019</span>
           </Link>
 
@@ -85,9 +93,20 @@ export default function Nav() {
       {mobileOpen && (
         <div className="border-b border-border bg-surface px-4 py-4 lg:hidden">
           <div className="mb-3 flex items-center justify-between border-b border-border pb-2">
-            <span className="font-mono text-xs text-foreground-dim">
-              NODE: reaper//6019
-            </span>
+            <div className="flex items-center gap-2">
+              <div className="relative h-5 w-5 overflow-hidden rounded">
+                <Image
+                  src="/nm_logo_bold_technical.png"
+                  alt="NM Monogram Logo"
+                  width={20}
+                  height={20}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span className="font-mono text-xs text-foreground-dim">
+                NODE: reaper//6019
+              </span>
+            </div>
             <span className="font-mono text-xs text-emerald-primary">● LIVE</span>
           </div>
           <nav className="flex flex-col gap-1.5 font-mono text-sm">

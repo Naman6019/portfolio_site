@@ -56,6 +56,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: "/nm_logo_bold_technical.png",
+    apple: "/nm_logo_bold_technical.png",
+  },
   twitter: {
     card: "summary_large_image",
     title: `${siteProfile.name} // ${siteProfile.role}`,
