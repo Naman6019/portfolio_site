@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Network, ShieldCheck, Database, Cpu, Play, CheckCircle2, Zap } from "lucide-react";
+import { Cpu, CheckCircle2, Zap } from "lucide-react";
 
 interface ProjectTrace {
   target: string;
@@ -22,7 +22,7 @@ interface ProjectTrace {
 
 const executionTraces: ProjectTrace[] = [
   {
-    target: "FundersAI Multi-Agent Synthesis",
+    target: "FundersAI Multi-Agent Synthesis (SYSTEM-01)",
     tabLabel: "01 // FundersAI",
     query: "Compute portfolio overlap & AMC asset allocation across 12 funds",
     router: "LangGraph StateGraph -> fund_comparison_node",
@@ -52,10 +52,10 @@ const executionTraces: ProjectTrace[] = [
     ],
   },
   {
-    target: "Google ADK Career Intelligence",
-    tabLabel: "02 // Google ADK",
+    target: "CareerAgent Intelligence (SYSTEM-02)",
+    tabLabel: "02 // CareerAgent",
     query: "Continuous platform crawl & ATS rejection pattern analysis",
-    router: "Gemini 3.6 Flash -> Taskmaster Pipeline",
+    router: "Google ADK + Gemini 3.6 Flash -> Taskmaster Pipeline",
     latency: "112ms",
     status: "REASONING_COMPLETE",
     citations: "8 Job Portals Parsed",
@@ -82,7 +82,7 @@ const executionTraces: ProjectTrace[] = [
     ],
   },
   {
-    target: "CareFlow Clinical RAFT Engine",
+    target: "CareFlow Clinical RAFT Engine (SYSTEM-03)",
     tabLabel: "03 // CareFlow",
     query: "Domain RAG search with mandatory clinical guideline citations",
     router: "Hybrid Dense Vector + BM25 Lexical Reranker",
@@ -133,13 +133,13 @@ export function HeroHUD() {
           <span className="flex h-6 w-6 items-center justify-center rounded border border-cyan-primary/40 bg-cyan-primary/10 text-cyan-primary shadow-xs">
             <Cpu className="h-3.5 w-3.5" />
           </span>
-          <span className="text-sm font-bold text-foreground">REAPER_LIVE_HUD</span>
-          <span className="text-xs text-foreground-dim">// v3.8</span>
+          <span className="text-sm font-bold text-foreground">PROJECT_LIVE_HUD</span>
+          <span className="text-xs text-foreground-dim">{"//"} v3.8</span>
         </div>
 
         <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-primary font-semibold">
           <span className="h-2 w-2 rounded-full bg-emerald-primary animate-pulse" />
-          <span>REASONING ACTIVE</span>
+          <span>SYSTEMS ACTIVE</span>
         </div>
       </div>
 

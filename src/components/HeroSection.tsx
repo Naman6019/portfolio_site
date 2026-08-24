@@ -9,6 +9,10 @@ import { Marquee } from "./magicui/marquee";
 import { HeroHUD } from "./HeroHUD";
 
 const marqueeItems = [
+  "INDEPENDENT ENGINEERING",
+  "FUNDERSAI",
+  "CAREERAGENT",
+  "CAREFLOW",
   "GOOGLE ADK",
   "LANGGRAPH",
   "22 CI/CD PIPELINES",
@@ -49,10 +53,10 @@ export default function HeroSection() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-2 border-b border-border/70 pb-3.5 font-mono text-xs text-foreground-dim">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-cyan-primary animate-ping-subtle" />
-            <span className="text-cyan-primary font-bold">REAPER AGENT v3.8</span>
-            <span>//</span>
+            <span className="text-cyan-primary font-bold">PERSONAL SYSTEMS v1.0</span>
+            <span>{"//"}</span>
             <span className="text-foreground-muted font-semibold">CALLSIGN: {siteProfile.callsign}</span>
-            <span className="hidden sm:inline">//</span>
+            <span className="hidden sm:inline">{"//"}</span>
             <span className="hidden sm:inline">LOC: {siteProfile.location} [{siteProfile.coordinates}]</span>
           </div>
 

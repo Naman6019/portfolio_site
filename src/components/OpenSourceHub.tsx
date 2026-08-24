@@ -1,6 +1,5 @@
 import { openSourceRepositories } from "@/content/site";
 import { Code2, ArrowUpRight } from "lucide-react";
-import { GithubIcon } from "./Icons";
 
 export default function OpenSourceHub() {
   return (
@@ -10,7 +9,7 @@ export default function OpenSourceHub() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
             <Code2 className="h-3.5 w-3.5" />
-            <span>// MORE OPEN-SOURCE REPOSITORIES</span>
+            <span>{"//"} MORE OPEN-SOURCE REPOSITORIES</span>
           </div>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-foreground font-sans">
             Open-Source Utilities & ML Research

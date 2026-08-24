@@ -272,14 +272,20 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
       window.removeEventListener("resize", handleResize);
     };
+    // The canvas lifecycle intentionally resets on color changes; helpers close over the current props.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color]);
 
   useEffect(() => {
     onMouseMove();
+    // The pointer handler is intentionally invoked only when the tracked coordinates change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosition.x, mousePosition.y]);
 
   useEffect(() => {
     initCanvas();
+    // Refresh is the explicit redraw trigger for this canvas.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
 
   return (

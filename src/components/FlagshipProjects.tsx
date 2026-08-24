@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { flagshipProjects, Project } from "@/content/site";
-import { ArrowUpRight, ExternalLink, Activity, Layers } from "lucide-react";
+import { flagshipProjects } from "@/content/site";
+import { Activity, ArrowUpRight, ExternalLink, Layers } from "lucide-react";
 import { GithubIcon, SparklesIcon } from "./Icons";
 
 const categories = [
@@ -27,7 +27,7 @@ export default function FlagshipProjects() {
           <div>
             <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
               <Layers className="h-3.5 w-3.5" />
-              <span>// 02. FLAGSHIP PRODUCTION SYSTEMS</span>
+              <span>{"//"} 02. FLAGSHIP PRODUCTION SYSTEMS</span>
             </div>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl text-foreground font-sans">
               Deployed Projects & Systems
@@ -75,7 +75,7 @@ export default function FlagshipProjects() {
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-b border-border/70 pb-4">
                 <div className="flex flex-wrap items-center gap-2.5">
                   <span className="font-mono text-xs font-bold text-cyan-primary">
-                    SYS-0{idx + 1} //
+                    {project.systemBadge ? project.systemBadge.split("//")[0].trim() : `SYS-0${idx + 1}`} {"//"}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
                     {project.title}
@@ -83,6 +83,11 @@ export default function FlagshipProjects() {
                   <span className="rounded border border-border bg-surface-raised px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-foreground-muted">
                     {project.category}
                   </span>
+                  {project.endorsement && (
+                    <span className="inline-flex items-center gap-1 rounded border border-cyan-primary/30 bg-cyan-primary/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-cyan-primary">
+                      ⚡ {project.endorsement}
+                    </span>
+                  )}
                 </div>
 
                 {project.featured && (

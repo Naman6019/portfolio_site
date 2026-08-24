@@ -1,5 +1,5 @@
 import type { Project } from "@/content/site";
-import { ArrowUpRight, ExternalLink, Activity } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { GithubIcon, SparklesIcon } from "./Icons";
 
 export default function ProjectCard({ project }: { project: Project }) {

@@ -1,5 +1,5 @@
 import { techStackMatrix } from "@/content/site";
-import { Cpu, Terminal, Wrench } from "lucide-react";
+import { Wrench } from "lucide-react";
 
 export default function TechMatrix() {
   return (
@@ -9,7 +9,7 @@ export default function TechMatrix() {
         <div className="mb-10 max-w-3xl">
           <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
             <Wrench className="h-3.5 w-3.5" />
-            <span>// 04. CLASSIFIED TOOLBOX & MATRIX</span>
+            <span>{"//"} 04. CLASSIFIED TOOLBOX &amp; MATRIX</span>
           </div>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl text-foreground font-sans">
             Technical Stack & Runtime Ecosystem

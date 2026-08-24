@@ -1,5 +1,5 @@
 import { siteProfile } from "@/content/site";
-import { Terminal, Shield, ArrowUp } from "lucide-react";
+import { Terminal, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,13 +10,15 @@ export default function Footer() {
             <Terminal className="h-3 w-3" />
           </span>
           <span className="font-bold text-foreground">{siteProfile.name}</span>
-          <span>//</span>
+          <span>{"//"}</span>
+          <span className="text-cyan-primary font-semibold">INDEPENDENT PORTFOLIO</span>
+          <span>{"//"}</span>
           <span>{siteProfile.location}</span>
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="text-[11px]">
-            NEXT.JS 16 · REACT 19 · TAILWIND 4
+          <span className="text-[11px] hidden sm:inline">
+            AUTONOMOUS AGENTS & FULL-STACK SYSTEMS
           </span>
           <a
             href="#top"

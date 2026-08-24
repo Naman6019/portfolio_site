@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Terminal as TerminalIcon, Play, Copy, Check, Sparkles, Server, Shield, Network } from "lucide-react";
+import { Terminal as TerminalIcon, Copy, Check, Server, Shield, Network } from "lucide-react";
 import { siteProfile, flagshipProjects } from "@/content/site";
 
 const tabs = [
@@ -249,7 +249,7 @@ print("[OK] RAFT Clinical Adaptation Matrix Initialized (Zero Hallucination Guar
           <div>
             <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
               <TerminalIcon className="h-3.5 w-3.5" />
-              <span>// 03. REAPER AGENT CONSOLE</span>
+              <span>{"//"} 03. REAPER AGENT CONSOLE</span>
             </div>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-foreground">
               Interactive System Architecture & Live Console

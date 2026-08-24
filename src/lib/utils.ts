@@ -1,5 +1,5 @@
 type ClassValue = ClassArray | ClassDictionary | string | number | null | boolean | undefined;
-type ClassDictionary = Record<string, any>;
+type ClassDictionary = Record<string, unknown>;
 type ClassArray = ClassValue[];
 
 function toVal(mix: ClassValue): string {
@@ -15,7 +15,7 @@ function toVal(mix: ClassValue): string {
       for (; k < len; k++) {
         if (mix[k]) {
           if ((y = toVal(mix[k]))) {
-            str && (str += " ");
+            if (str) str += " ";
             str += y;
           }
         }
@@ -23,7 +23,7 @@ function toVal(mix: ClassValue): string {
     } else {
       for (const key in mix) {
         if (mix && mix[key]) {
-          str && (str += " ");
+          if (str) str += " ";
           str += key;
         }
       }
@@ -42,7 +42,7 @@ export function cn(...inputs: ClassValue[]): string {
   for (; i < len; i++) {
     if ((tmp = inputs[i])) {
       if ((x = toVal(tmp))) {
-        str && (str += " ");
+        if (str) str += " ";
         str += x;
       }
     }

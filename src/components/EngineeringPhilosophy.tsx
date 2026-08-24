@@ -1,5 +1,5 @@
 import { engineeringPrinciples } from "@/content/site";
-import { ShieldCheck, Compass } from "lucide-react";
+import { Compass } from "lucide-react";
 
 export default function EngineeringPhilosophy() {
   return (
@@ -9,7 +9,7 @@ export default function EngineeringPhilosophy() {
         <div className="mb-10 max-w-3xl">
           <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-amber-primary">
             <Compass className="h-3.5 w-3.5" />
-            <span>// 05. ENGINEERING CREED</span>
+            <span>{"//"} 05. ENGINEERING CREED</span>
           </div>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl text-foreground font-sans">
             System Design Principles

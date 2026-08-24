@@ -1,14 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
-export default function ThemeToggle() {
-  const [isLight, setIsLight] = useState(false);
+const themeChangeEvent = "portfolio-theme-change";
 
-  useEffect(() => {
-    setIsLight(document.documentElement.classList.contains("light"));
-  }, []);
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener(themeChangeEvent, onStoreChange);
+  return () => window.removeEventListener(themeChangeEvent, onStoreChange);
+}
+
+function getSnapshot() {
+  return document.documentElement.classList.contains("light");
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+export default function ThemeToggle() {
+  const isLight = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function toggle() {
     const nextLight = !document.documentElement.classList.contains("light");
@@ -16,13 +27,12 @@ export default function ThemeToggle() {
       document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
       localStorage.setItem("theme", "light");
-      setIsLight(true);
     } else {
       document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      setIsLight(false);
     }
+    window.dispatchEvent(new Event(themeChangeEvent));
   }
 
   return (
@@ -31,7 +41,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle terminal theme"
       title={isLight ? "Switch to Dark Reaper Mode" : "Switch to Light Mode"}
-      className="group relative flex h-9 items-center gap-2 rounded border border-border bg-surface px-2.5 font-mono text-xs text-foreground-muted transition-all hover:border-cyan-primary/50 hover:bg-surface-hover hover:text-foreground active:scale-95"
+      className="group relative flex h-11 items-center gap-2 rounded border border-border bg-surface px-2.5 font-mono text-xs text-foreground-muted transition-all hover:border-cyan-primary/50 hover:bg-surface-hover hover:text-foreground active:scale-95"
     >
       {isLight ? (
         <>

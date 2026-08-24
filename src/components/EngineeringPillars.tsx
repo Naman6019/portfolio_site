@@ -11,7 +11,7 @@ export default function EngineeringPillars() {
         <div className="mb-10 max-w-3xl">
           <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
             <Network className="h-3.5 w-3.5" />
-            <span>// 01. CORE ARCHITECTURE PILLARS</span>
+            <span>{"//"} 01. CORE ARCHITECTURE PILLARS</span>
           </div>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-4xl text-foreground font-sans">
             Engineering Foundations

@@ -1,4 +1,4 @@
-import { Activity, GitBranch } from "lucide-react";
+import { Activity } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { siteProfile } from "@/content/site";
 
@@ -11,7 +11,7 @@ export default function GitHubTelemetry() {
           <div>
             <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-emerald-primary">
               <Activity className="h-3.5 w-3.5" />
-              <span>// GITHUB TELEMETRY & ACTIVITY</span>
+              <span>{"//"} GITHUB TELEMETRY &amp; ACTIVITY</span>
             </div>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-foreground font-sans">
               Live Repository Metrics

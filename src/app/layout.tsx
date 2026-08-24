@@ -1,69 +1,61 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { siteProfile } from "@/content/site";
+import { portfolioProfile } from "@/content/portfolio";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans-stack",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono-stack",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://namanmanocha.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://namanmanocha.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: `${siteProfile.name} // ${siteProfile.role}`,
-    template: `%s // ${siteProfile.name}`,
+  alternates: {
+    canonical: "/",
   },
-  description: `${siteProfile.tagline} Specializing in Google ADK, LangGraph, RAFT, Next.js 16, and FastAPI.`,
+  title: {
+    default: `${portfolioProfile.name} // ${portfolioProfile.role}`,
+    template: `%s // ${portfolioProfile.name}`,
+  },
+  description: `${portfolioProfile.tagline} Specializing in ${portfolioProfile.specialization}.`,
   keywords: [
     "Naman Manocha",
-    "Autonomous Agent Architect",
+    "AI Engineer",
     "AI ML Engineer",
     "GenAI Engineer",
     "LangGraph",
     "Google ADK",
     "RAFT Fine-Tuning",
     "FundersAI",
+    "CareFlow Intelligence",
+    "CareerAgent",
     "Next.js 16",
     "FastAPI",
     "Supabase",
     "Full-Stack Systems Builder",
     "Kolkata India",
   ],
-  authors: [{ name: siteProfile.name, url: siteProfile.socials.github }],
-  creator: siteProfile.name,
+  authors: [{ name: portfolioProfile.name, url: portfolioProfile.github }],
+  creator: portfolioProfile.name,
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${siteProfile.name} // ${siteProfile.role}`,
-    description: siteProfile.tagline,
-    siteName: `${siteProfile.name} — Autonomous Agent Architect`,
+    title: `${portfolioProfile.name} // ${portfolioProfile.role}`,
+    description: portfolioProfile.tagline,
+    siteName: `${portfolioProfile.name} — AI Engineer`,
     images: [
       {
         url: "https://raw.githubusercontent.com/Naman6019/FundersAI/main/frontend/public/FUNDERSAI-nobackground.png",
         width: 1200,
         height: 630,
-        alt: `${siteProfile.name} Portfolio`,
+        alt: `${portfolioProfile.name} Portfolio`,
       },
     ],
   },
   icons: {
-    icon: "/nm_logo_bold_technical.png",
-    apple: "/nm_logo_bold_technical.png",
+    icon: portfolioProfile.logo,
+    apple: portfolioProfile.logo,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteProfile.name} // ${siteProfile.role}`,
-    description: siteProfile.tagline,
+    title: `${portfolioProfile.name} // ${portfolioProfile.role}`,
+    description: portfolioProfile.tagline,
     creator: "@Capt6019",
   },
   robots: {
@@ -86,10 +78,12 @@ const themeScript = `
 (function () {
   try {
     var stored = localStorage.getItem('theme');
+    var root = document.documentElement;
+    root.classList.remove('dark', 'light');
     if (stored === 'light') {
-      document.documentElement.classList.add('light');
+      root.classList.add('light');
     } else {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     }
   } catch (e) {
     document.documentElement.classList.add('dark');
@@ -105,14 +99,13 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: siteProfile.name,
-    jobTitle: siteProfile.role,
+    name: portfolioProfile.name,
+    jobTitle: portfolioProfile.role,
     url: siteUrl,
     sameAs: [
-      siteProfile.socials.github,
-      siteProfile.socials.twitter,
-      siteProfile.socials.instagram,
-      siteProfile.socials.fundersai,
+      portfolioProfile.linkedin,
+      portfolioProfile.github,
+      "https://www.fundersai.co.in",
     ],
     address: {
       "@type": "PostalAddress",
@@ -136,7 +129,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${mono.variable} dark h-full`}
+      className="dark h-full"
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

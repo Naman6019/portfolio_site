@@ -4,17 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteProfile } from "@/content/site";
+import { portfolioProfile } from "@/content/portfolio";
 import ThemeToggle from "./ThemeToggle";
 import { GithubIcon } from "./Icons";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navItems = [
-  { href: "#pillars", label: "01//PILLARS" },
-  { href: "#projects", label: "02//PROJECTS" },
-  { href: "#terminal", label: "03//TERMINAL" },
-  { href: "#stack", label: "04//STACK" },
-  { href: "#philosophy", label: "05//PHILOSOPHY" },
-  { href: "#contact", label: "06//CONTACT" },
+  { href: "/", label: "HOME" },
+  { href: "/projects", label: "PROJECTS" },
+  { href: "/experience", label: "EXPERIENCE" },
+  { href: "/credentials", label: "CREDENTIALS" },
+  { href: "/about", label: "ABOUT" },
+  { href: "/#contact", label: "CONTACT" },
 ];
 
 export default function Nav() {
@@ -39,8 +40,16 @@ export default function Nav() {
                 priority
               />
             </div>
-            <span className="text-base font-bold tracking-tight">reaper<span className="text-cyan-primary">//</span>6019</span>
+            <span className="text-base font-bold tracking-tight">reaper<span className="text-cyan-primary">{"//"}</span>6019</span>
           </Link>
+
+          <div className="hidden items-center gap-2 md:flex">
+            <span className="font-mono text-xs text-border">/</span>
+            <div className="inline-flex items-center gap-1 rounded border border-cyan-primary/30 bg-cyan-primary/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-cyan-primary">
+              <span>⚡</span>
+              <span>INDEPENDENT PORTFOLIO</span>
+            </div>
+          </div>
 
           <div className="hidden items-center gap-1.5 rounded-full border border-emerald-primary/30 bg-emerald-primary/10 px-2.5 py-0.5 font-mono text-[10px] font-medium text-emerald-primary sm:flex whitespace-nowrap">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-primary animate-pulse" />
@@ -73,6 +82,14 @@ export default function Nav() {
             <GithubIcon className="h-3.5 w-3.5" />
             <span className="hidden md:inline">GitHub</span>
             <ArrowUpRight className="h-3 w-3 opacity-60" />
+          </a>
+
+          <a
+            href={portfolioProfile.resume}
+            download
+            className="hidden h-9 items-center rounded border border-cyan-primary/40 bg-cyan-primary/10 px-3 font-mono text-xs font-bold text-cyan-primary transition-colors hover:bg-cyan-primary/20 sm:flex"
+          >
+            Resume
           </a>
 
           <ThemeToggle />

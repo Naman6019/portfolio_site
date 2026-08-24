@@ -22,13 +22,13 @@ export default function ContactHub() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-cyan-primary">
               <Send className="h-3.5 w-3.5" />
-              <span>// 06. SECURE TRANSMISSION & INQUIRIES</span>
+              <span>{"//"} 06. SECURE TRANSMISSION &amp; INQUIRIES</span>
             </div>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground font-sans">
               Initiate Contact & Collaboration
             </h2>
             <p className="mt-3 text-base text-foreground-muted leading-relaxed">
-              Open to AI/ML engineering, autonomous agent architecture, and high-impact full-stack roles. Direct inquiries receive prompt responses.
+              Open to AI/ML engineering, autonomous agent architecture, and high-impact full-stack roles. Direct inquiries for collaboration receive prompt responses.
             </p>
           </div>
 

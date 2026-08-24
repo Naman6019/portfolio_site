@@ -11,6 +11,8 @@ export interface Project {
   links: { label: string; href: string; icon?: string }[];
   featured: boolean;
   systemDiagram?: string;
+  systemBadge?: string;
+  endorsement?: string;
 }
 
 export interface OpenSourceRepo {
@@ -29,7 +31,7 @@ export const siteProfile = {
   location: "Kolkata, India",
   coordinates: "22.5726° N, 88.3639° E",
   status: "OPEN TO AI/ML & AGENT ENGINEERING ROLES",
-  nodeEnv: "NODE: PRODUCTION // REAPER CORE v3.8",
+  nodeEnv: "NODE: PRODUCTION // INDEPENDENT PORTFOLIO",
   tagline:
     "Building deterministic data pipelines, multi-agent graph orchestrations, and full-stack systems where outputs are grounded, inspectable, and resilient.",
   bio: [
@@ -42,7 +44,6 @@ export const siteProfile = {
     twitter: "https://twitter.com/Capt6019",
     instagram: "https://www.instagram.com/naman_manocha19?igsh=MTI2MHA2OGxkdHlpag==",
     fundersai: "https://www.fundersai.co.in",
-    fundersaiStudio: "https://synthesis.fundersai.co.in",
   },
   stats: {
     workflows: "22+",
@@ -106,6 +107,8 @@ export const flagshipProjects: Project[] = [
     title: "FundersAI",
     category: "fintech",
     tagline: "AI-orchestrated financial research workspace for Indian equities and mutual funds.",
+    systemBadge: "SYSTEM-01 // QUANT FINTECH",
+    endorsement: "Independent portfolio project",
     problem:
       "Financial intelligence tools frequently present ungrounded or stale data behind confident conversational interfaces without traceable provenance.",
     architecture:
@@ -133,9 +136,11 @@ export const flagshipProjects: Project[] = [
   },
   {
     slug: "all-things-agentic",
-    title: "all-things-agentic",
+    title: "CareerAgent (all-things-agentic)",
     category: "agentic",
     tagline: "Autonomous multi-source job search & career intelligence agent (Taskmaster Track).",
+    systemBadge: "SYSTEM-02 // AUTONOMOUS TALENT ENGINE",
+    endorsement: "Independent portfolio project",
     problem:
       "Manual candidate job tracking lacks continuous multi-platform ingestion, structured ATS rejection telemetry, and contextualized profile matching.",
     architecture:
@@ -162,6 +167,8 @@ export const flagshipProjects: Project[] = [
     title: "CareFlow Intelligence",
     category: "agentic",
     tagline: "Clinical Decision Support Platform with RAFT Fine-Tuning & Hybrid Vector RAG.",
+    systemBadge: "SYSTEM-03 // CLINICAL DECISION ENGINE",
+    endorsement: "Independent research project",
     problem:
       "Clinical prototypes risk hallucinations and lack verifiable grounding to peer-reviewed guidelines and medical literature.",
     architecture:
