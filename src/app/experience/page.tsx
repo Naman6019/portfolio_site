@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { ArrowUpRight, BriefcaseBusiness, FileText, GraduationCap, MapPin } from "lucide-react";
 import type { CareerEvidence } from "@/content/portfolio";
 import { PortfolioFrame, SectionLabel } from "@/components/portfolio/PortfolioChrome";
-import { achievements, credentials, education, experience, portfolioProfile } from "@/content/portfolio";
+import { HackathonSubmissions } from "@/components/portfolio/HackathonSubmissions";
+import { achievements, credentials, education, experience, hackathonSubmissions, portfolioProfile } from "@/content/portfolio";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -21,7 +22,7 @@ function EvidenceLink({ source }: { source: CareerEvidence }) {
       download={isDocument ? true : undefined}
       target={isDocument ? undefined : "_blank"}
       rel={isDocument ? undefined : "noreferrer noopener"}
-      className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface-raised px-3 py-2 font-mono text-[11px] font-bold text-cyan-primary transition-colors hover:border-cyan-primary/50 hover:text-foreground focus-visible:ring-2 focus-visible:ring-cyan-primary"
+      className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface-raised px-3 py-2 font-mono text-[11px] font-bold text-blueprint-primary transition-colors hover:border-blueprint-primary/60 hover:text-foreground focus-visible:ring-2 focus-visible:ring-blueprint-primary"
     >
       {isDocument ? <FileText className="h-3.5 w-3.5" aria-hidden="true" /> : <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
       {source.label}
@@ -36,37 +37,41 @@ export default function ExperiencePage() {
   return (
     <PortfolioFrame>
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <SectionLabel>Career evidence</SectionLabel>
-        <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-6xl">Experience, education, and the proof behind them.</h1>
+        <div className="atlas-index-rail max-w-4xl pl-6 sm:pl-8">
+          <SectionLabel>Career evidence</SectionLabel>
+          <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] text-foreground sm:text-7xl">Experience, education, and the proof behind them.</h1>
+        </div>
         <p className="mt-5 max-w-2xl text-base leading-7 text-foreground-muted">A recruiter-readable timeline of the work, study, and current credential behind this independent AI engineering portfolio.</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={portfolioProfile.resume}
             download
-            className="inline-flex min-h-11 items-center gap-2 rounded-md bg-cyan-primary px-4 py-3 font-mono text-xs font-bold text-slate-950 transition-colors hover:bg-cyan-primary/80 focus-visible:ring-2 focus-visible:ring-cyan-primary"
+            className="inline-flex min-h-11 items-center gap-2 rounded-md bg-signal-primary px-4 py-3 font-mono text-xs font-bold text-slate-950 transition-colors hover:bg-signal-primary/85 focus-visible:ring-2 focus-visible:ring-signal-primary"
           >
             Download resume <FileText className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
           <Link
             href="/credentials"
-            className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface px-4 py-3 font-mono text-xs font-bold text-foreground transition-colors hover:border-cyan-primary/50 hover:text-cyan-primary focus-visible:ring-2 focus-visible:ring-cyan-primary"
+            className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface px-4 py-3 font-mono text-xs font-bold text-foreground transition-colors hover:border-blueprint-primary/60 hover:text-blueprint-primary focus-visible:ring-2 focus-visible:ring-blueprint-primary"
           >
             View credentials <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
         </div>
 
         <dl className="mt-12 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Professional role</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">{experience.length}</dd>
-            <dd className="mt-1 text-sm text-foreground-muted">Current role listed</dd>
+            <dd className="mt-1 text-sm text-foreground-muted">
+              {experience.length === 1 ? "Role listed" : "Roles listed"}
+            </dd>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Education</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">{education.length}</dd>
             <dd className="mt-1 text-sm text-foreground-muted">Completed degree</dd>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Active credential</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">{activeCredentialCount}</dd>
             <dd className="mt-1 text-sm text-foreground-muted">Public verification path</dd>
@@ -83,11 +88,11 @@ export default function ExperiencePage() {
               <BriefcaseBusiness className="hidden h-7 w-7 text-cyan-primary sm:block" aria-hidden="true" />
             </div>
 
-            <ol className="mt-8 space-y-8 border-l border-cyan-primary/30 pl-6">
+            <ol className="mt-8 space-y-8 border-l border-blueprint-primary/35 pl-6">
               {experience.map((item) => (
                 <li key={`${item.organization}-${item.role}`} className="relative">
                   <span className="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-cyan-primary" aria-hidden="true" />
-                  <article className="rounded-xl border border-border bg-surface p-6">
+                  <article className="atlas-card atlas-card-hover p-6">
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-cyan-primary">{item.type}</p>
@@ -115,7 +120,7 @@ export default function ExperiencePage() {
             </ol>
           </section>
 
-          <aside className="h-fit rounded-xl border border-border bg-surface p-6 lg:sticky lg:top-24">
+          <aside className="atlas-card h-fit p-6 lg:sticky lg:top-24">
             <SectionLabel>Job-first framing</SectionLabel>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground">A working engineer moving deeper into AI systems.</h2>
             <p className="mt-4 text-sm leading-7 text-foreground-muted">The current role establishes product delivery and stakeholder context. The project archive shows the deliberate move toward grounded AI, agentic workflows, and applied ML.</p>
@@ -140,7 +145,7 @@ export default function ExperiencePage() {
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {education.map((item) => (
-              <article key={item.institution} className="rounded-xl border border-border bg-surface p-6">
+              <article key={item.institution} className="atlas-card p-6">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-primary">{item.status}</p>
@@ -168,18 +173,12 @@ export default function ExperiencePage() {
         </section>
 
         <section aria-labelledby="achievements" className="mt-16 border-t border-border pt-12">
-          <SectionLabel>Achievements</SectionLabel>
-          <h2 id="achievements" className="mt-3 text-3xl font-bold tracking-tight text-foreground">Published only when the evidence is ready.</h2>
-          {achievements.length === 0 ? (
-            <div className="mt-8 rounded-xl border border-dashed border-border-strong bg-surface/60 p-6">
-              <p className="text-base font-semibold text-foreground">No separate achievements are published yet.</p>
-              <p className="mt-2 max-w-2xl text-sm leading-7 text-foreground-muted">That is intentional. Current proof is concentrated in the dated experience record, project case studies, education, and AWS credential verification. This section is ready for future additions with an issuer, date, status, and evidence link.</p>
-            </div>
-          ) : (
+          <HackathonSubmissions submissions={hackathonSubmissions} />
+          {achievements.length > 0 ? (
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {achievements.map((achievement) => (
-                <article key={`${achievement.title}-${achievement.organization}`} className="rounded-xl border border-border bg-surface p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-primary">{achievement.status}</p>
+                <article key={`${achievement.title}-${achievement.organization}`} className="atlas-card p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-signal-primary">{achievement.status}</p>
                   <h3 className="mt-3 text-xl font-bold text-foreground">{achievement.title}</h3>
                   <p className="mt-1 text-sm text-foreground-muted">{achievement.organization} · {achievement.date}</p>
                   <p className="mt-4 text-sm leading-7 text-foreground-muted">{achievement.description}</p>
@@ -187,7 +186,7 @@ export default function ExperiencePage() {
                 </article>
               ))}
             </div>
-          )}
+          ) : null}
         </section>
       </section>
     </PortfolioFrame>

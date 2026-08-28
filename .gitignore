@@ -1,14 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
 # testing
 /coverage
@@ -28,22 +21,20 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
 # env files
 .env*
 !.env.example
 
-# vercel & netlify
+# vercel
 .vercel
-.netlify
 
-# ide & agent caches
-.claude/
-.gemini/
-.idea/
-.vscode/
+# AI coding agent local caches & sessions
+.opencode
+.claude
 
-# typescript
-*.tsbuildinfo
+# tooling output
+graphify-out/
+
+# next.js generated types
 next-env.d.ts

@@ -27,7 +27,7 @@ function EvidenceLink({ source }: { source: CareerEvidence }) {
       download={isDocument ? true : undefined}
       target={isDocument ? undefined : "_blank"}
       rel={isDocument ? undefined : "noreferrer noopener"}
-      className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface-raised px-4 py-3 font-mono text-xs font-bold text-cyan-primary transition-colors hover:border-cyan-primary/50 hover:text-foreground focus-visible:ring-2 focus-visible:ring-cyan-primary"
+      className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border-strong bg-surface-raised px-4 py-3 font-mono text-xs font-bold text-blueprint-primary transition-colors hover:border-blueprint-primary/60 hover:text-foreground focus-visible:ring-2 focus-visible:ring-blueprint-primary"
     >
       {isDocument ? <FileText className="h-3.5 w-3.5" aria-hidden="true" /> : <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
       {source.label}
@@ -43,22 +43,24 @@ export default function CredentialsPage() {
   return (
     <PortfolioFrame>
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <SectionLabel>Verified credentials</SectionLabel>
-        <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-6xl">Current credentials, with status visible.</h1>
+        <div className="atlas-index-rail max-w-4xl pl-6 sm:pl-8">
+          <SectionLabel>Verified credentials</SectionLabel>
+          <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] text-foreground sm:text-7xl">Current credentials, with status visible.</h1>
+        </div>
         <p className="mt-5 max-w-2xl text-base leading-7 text-foreground-muted">A small, honest credential record: issuer, dates, current status, and a direct verification path.</p>
 
         <dl className="mt-12 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Active credentials</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">{activeCredentials.length}</dd>
             <dd className="mt-1 text-sm text-foreground-muted">Currently listed</dd>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Verification links</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">{verificationLinks.length}</dd>
             <dd className="mt-1 text-sm text-foreground-muted">Public issuer paths</dd>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="atlas-card p-5">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-dim">Expired credentials</dt>
             <dd className="mt-2 text-2xl font-bold text-foreground">0</dd>
             <dd className="mt-1 text-sm text-foreground-muted">Not presented as current</dd>
@@ -77,7 +79,7 @@ export default function CredentialsPage() {
 
             <div className="mt-8 space-y-5">
               {credentials.map((credential) => (
-                <article key={credential.name} className="rounded-xl border border-emerald-primary/30 bg-surface p-6 shadow-[0_0_35px_-10px_rgba(16,185,129,0.12)]">
+                <article key={credential.name} className="atlas-card atlas-featured-card border-signal-primary/35 p-6 sm:p-8">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-emerald-primary/40 bg-emerald-primary/10 text-emerald-primary">
@@ -111,7 +113,7 @@ export default function CredentialsPage() {
             </div>
           </section>
 
-          <aside className="h-fit rounded-xl border border-border bg-surface p-6 lg:sticky lg:top-24">
+          <aside className="atlas-card h-fit p-6 lg:sticky lg:top-24">
             <SectionLabel>Credential policy</SectionLabel>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground">Proof before polish.</h2>
             <p className="mt-4 text-sm leading-7 text-foreground-muted">This page only presents a credential when its issuer, status, dates, and verification path are available. Expired credentials are not presented as current.</p>
@@ -129,7 +131,7 @@ export default function CredentialsPage() {
           <SectionLabel>Supporting documents</SectionLabel>
           <h2 id="supporting-documents" className="mt-3 text-3xl font-bold tracking-tight text-foreground">A downloadable career record.</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <article className="rounded-xl border border-border bg-surface p-6">
+            <article className="atlas-card p-6">
               <FileText className="h-6 w-6 text-cyan-primary" aria-hidden="true" />
               <h3 className="mt-5 text-xl font-bold text-foreground">Master resume</h3>
               <p className="mt-2 text-sm leading-7 text-foreground-muted">Use the resume for the complete career record, role details, and contact information. The portfolio keeps its public pages concise and evidence-labelled.</p>
@@ -137,7 +139,7 @@ export default function CredentialsPage() {
                 Download DOCX <FileText className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
             </article>
-            <article className="rounded-xl border border-border bg-surface p-6">
+            <article className="atlas-card p-6">
               <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-primary">Professional profile</p>
               <h3 className="mt-5 text-xl font-bold text-foreground">LinkedIn</h3>
               <p className="mt-2 text-sm leading-7 text-foreground-muted">The live professional profile is the place to confirm current career context and connect directly.</p>

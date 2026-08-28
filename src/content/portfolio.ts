@@ -1,11 +1,12 @@
 export type ProjectStatus = "deployed" | "in-progress" | "research";
 
-export type EvidenceKind = "live" | "repository" | "verification";
+export type EvidenceKind = "live" | "repository" | "verification" | "submission";
 
 export const evidenceKindLabels: Record<EvidenceKind, string> = {
   live: "Live product",
   repository: "Public repository",
   verification: "Verification link",
+  submission: "Hackathon submission",
 };
 
 export interface EvidenceLink {
@@ -64,6 +65,16 @@ export interface AchievementRecord {
   evidence: CareerEvidence[];
 }
 
+export interface HackathonSubmissionRecord {
+  projectSlug: string;
+  projectTitle: string;
+  event: string;
+  host: string;
+  platform: string;
+  status: "submitted";
+  evidence: EvidenceLink[];
+}
+
 export interface PortfolioProject {
   slug: string;
   title: string;
@@ -92,7 +103,7 @@ export const portfolioProfile = {
   email: "thereaper6019@gmail.com",
   linkedin: "https://www.linkedin.com/in/naman-d-manocha/",
   github: "https://github.com/Naman6019",
-  resume: "/resume/Naman_Manocha_Master_Resume.docx",
+  resume: "/resume/Naman_Manocha_Master_Resume.pdf",
   logo: "/nm_logo_bold_technical.png",
 };
 
@@ -118,6 +129,7 @@ export const portfolioProjects: PortfolioProject[] = [
     evidence: [
       { label: "Open live product", href: "https://www.fundersai.co.in", kind: "live" },
       { label: "Read the repository", href: "https://github.com/Naman6019/FundersAI", kind: "repository" },
+      { label: "Open Devpost submission", href: "https://devpost.com/software/fundersai?ref_content=user-portfolio&ref_feature=in_progress", kind: "submission" },
     ],
     featured: true,
   },
@@ -359,6 +371,21 @@ export const portfolioProjects: PortfolioProject[] = [
 
 export const experience: ExperienceRecord[] = [
   {
+    role: "AI Engineer Intern",
+    organization: "Internmo",
+    type: "Internship · Remote",
+    dates: "Aug 2026–Present",
+    location: "Remote",
+    summary:
+      "Three-month AI engineering internship, ongoing since August 2026.",
+    highlights: [
+      "Three-month remote engagement, started August 2026 and currently in progress.",
+    ],
+    evidence: [
+      { label: "Resume source", href: portfolioProfile.resume, kind: "document" },
+    ],
+  },
+  {
     role: "Technology Manager",
     organization: "PayGain Multiservices Pvt. Ltd.",
     type: "Full-time role",
@@ -411,6 +438,29 @@ export const credentials: CredentialRecord[] = [
 
 // Keep this explicit until a separately evidenced achievement is approved for publication.
 export const achievements: AchievementRecord[] = [];
+
+export const hackathonSubmissions: HackathonSubmissionRecord[] = [
+  {
+    projectSlug: "funders-ai",
+    projectTitle: "FundersAI",
+    event: "OpenAI Build Week Hackathon",
+    host: "OpenAI",
+    platform: "Devpost",
+    status: "submitted",
+    evidence: [
+      { label: "Open Devpost submission", href: "https://devpost.com/software/fundersai?ref_content=user-portfolio&ref_feature=in_progress", kind: "submission" },
+    ],
+  },
+  {
+    projectSlug: "talentos",
+    projectTitle: "TalentOS",
+    event: "All Things Agentic Hackathon",
+    host: "Google",
+    platform: "Devpost",
+    status: "submitted",
+    evidence: [],
+  },
+];
 
 export const principles = [
   "Ground explanations in inspectable evidence and clear limitations.",

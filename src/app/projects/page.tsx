@@ -35,33 +35,33 @@ export default function ProjectsPage() {
     <PortfolioFrame>
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
-          <div className="max-w-3xl">
+          <div className="atlas-index-rail max-w-3xl pl-6 sm:pl-8">
             <SectionLabel>Project archive</SectionLabel>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">Work built to be inspected.</h1>
+            <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] text-foreground sm:text-7xl">Work built to be inspected.</h1>
             <p className="mt-5 text-base leading-8 text-foreground-muted sm:text-lg">
               A growing record of AI products, retrieval systems, agent workflows, and full-stack infrastructure. Each page explains the problem, build, current outcome, public evidence, and boundary.
             </p>
           </div>
 
-          <dl className="grid grid-cols-3 gap-2 rounded-xl border border-border bg-surface p-3">
-            <div className="rounded-lg bg-background px-3 py-4 text-center">
+          <dl className="atlas-card grid grid-cols-3 gap-2 p-3">
+            <div className="rounded-lg border border-border/70 bg-background/60 px-3 py-4 text-center">
               <dt className="font-mono text-[10px] uppercase tracking-wider text-foreground-dim">Entries</dt>
               <dd className="mt-2 text-2xl font-bold text-foreground">{portfolioProjects.length}</dd>
             </div>
-            <div className="rounded-lg bg-background px-3 py-4 text-center">
+            <div className="rounded-lg border border-border/70 bg-background/60 px-3 py-4 text-center">
               <dt className="font-mono text-[10px] uppercase tracking-wider text-foreground-dim">Deployed</dt>
               <dd className="mt-2 text-2xl font-bold text-emerald-primary">{deployedCount}</dd>
             </div>
-            <div className="rounded-lg bg-background px-3 py-4 text-center">
+            <div className="rounded-lg border border-border/70 bg-background/60 px-3 py-4 text-center">
               <dt className="font-mono text-[10px] uppercase tracking-wider text-foreground-dim">Evidence</dt>
               <dd className="mt-2 text-2xl font-bold text-cyan-primary">{publicEvidenceCount}</dd>
             </div>
           </dl>
         </div>
 
-        <aside className="mt-10 rounded-xl border border-cyan-primary/25 bg-cyan-primary/5 p-5">
+        <aside className="atlas-card mt-10 border-blueprint-primary/25 bg-blueprint-primary/5 p-5 sm:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-cyan-primary">Evidence policy</p>
+            <p className="atlas-eyebrow">Evidence policy</p>
             <span className="font-mono text-[10px] uppercase tracking-wider text-foreground-dim">{evidenceKindLabels.live} · {evidenceKindLabels.repository}</span>
           </div>
           <p className="mt-3 max-w-4xl text-sm leading-7 text-foreground-muted">

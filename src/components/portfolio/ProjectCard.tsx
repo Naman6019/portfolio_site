@@ -5,7 +5,7 @@ import { StatusBadge } from "./PortfolioChrome";
 
 export default function ProjectCard({ project }: { project: PortfolioProject }) {
   return (
-    <article className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 transition-colors hover:border-cyan-primary/40 hover:bg-surface-raised">
+    <article className="atlas-card atlas-card-hover group flex h-full flex-col p-5">
       <div className="flex items-start justify-between gap-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-foreground-dim">{project.category}</p>
         <StatusBadge status={project.status} />
@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: { project: PortfolioProject }) 
       <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-6">
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex min-h-11 items-center gap-1 font-mono text-xs font-bold text-cyan-primary hover:text-foreground focus-visible:ring-2 focus-visible:ring-cyan-primary"
+          className="inline-flex min-h-11 items-center gap-1 font-mono text-xs font-bold text-blueprint-primary hover:text-foreground focus-visible:ring-2 focus-visible:ring-blueprint-primary"
         >
           Read case study <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: { project: PortfolioProject }) 
             href={project.evidence[0].href}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex min-h-11 items-center gap-1 font-mono text-xs text-foreground-dim hover:text-foreground focus-visible:ring-2 focus-visible:ring-cyan-primary"
+            className="inline-flex min-h-11 items-center gap-1 font-mono text-xs text-foreground-dim hover:text-foreground focus-visible:ring-2 focus-visible:ring-blueprint-primary"
           >
             {evidenceKindLabels[project.evidence[0].kind]} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
