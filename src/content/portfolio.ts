@@ -377,9 +377,11 @@ export const experience: ExperienceRecord[] = [
     dates: "Aug 2026–Present",
     location: "Remote",
     summary:
-      "Three-month AI engineering internship, ongoing since August 2026.",
+      "Three-month remote AI engineering internship. Currently building Vantara, an end-to-end customer intelligence platform for churn and customer-value prediction, due November 2026.",
     highlights: [
-      "Three-month remote engagement, started August 2026 and currently in progress.",
+      "Building churn-risk and 90-day customer-value models over historical transaction data, using time-based splits to keep evaluation leakage-safe.",
+      "Designing customer segmentation that prioritizes high-value at-risk accounts and returns explainable retention recommendations.",
+      "Shipping the system as a dashboard and REST API, containerized with Docker, with monitoring, tests, and documentation.",
     ],
     evidence: [
       { label: "Resume source", href: portfolioProfile.resume, kind: "document" },
