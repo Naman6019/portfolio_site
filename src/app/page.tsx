@@ -47,24 +47,24 @@ export default function Home() {
       <section className="relative border-b border-border/80">
         <div className="pointer-events-none absolute inset-0 reaper-grid-bg opacity-45" aria-hidden="true" />
         <div className="pointer-events-none absolute right-[-16rem] top-[-13rem] h-[30rem] w-[30rem] rounded-full bg-blueprint-primary/10 blur-3xl" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div className="relative mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-14 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(360px,1.14fr)] lg:items-center lg:gap-16">
-            <div className="atlas-index-rail atlas-rise pl-6 sm:pl-8">
-              <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground-dim">
+            <div className="atlas-index-rail pl-6 sm:pl-8">
+              <div className="atlas-rise flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground-dim">
                 <span className="status-mark">{portfolioProfile.availability}</span>
                 <span className="text-border-strong" aria-hidden="true">/</span>
                 <span>{portfolioProfile.location}</span>
               </div>
-              <div className="mt-9">
+              <div className="atlas-rise atlas-rise-delay-1 mt-9">
                 <SectionLabel>AI engineer · GenAI · agentic systems</SectionLabel>
               </div>
-              <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-[0.98] tracking-[-0.065em] text-foreground sm:text-7xl lg:text-[5.8rem]">
+              <h1 className="atlas-rise atlas-rise-delay-2 mt-6 max-w-3xl text-5xl font-bold leading-[0.98] tracking-[-0.065em] text-foreground sm:text-7xl lg:text-[5.8rem]">
                 Building grounded AI systems people can inspect.
               </h1>
-              <p className="mt-7 max-w-xl text-base leading-8 text-foreground-muted sm:text-lg">
+              <p className="atlas-rise atlas-rise-delay-3 mt-7 max-w-xl text-base leading-8 text-foreground-muted sm:text-lg">
                 {portfolioProfile.tagline} I am looking for a team where careful engineering, evaluation, and useful product delivery matter.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="atlas-rise atlas-rise-delay-4 mt-9 flex flex-wrap gap-3">
                 <Link
                   href="#selected-work"
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-signal-primary px-5 py-3 font-mono text-xs font-bold text-slate-950 transition-transform hover:-translate-y-0.5 hover:bg-signal-primary/85 focus-visible:ring-2 focus-visible:ring-signal-primary"
@@ -79,7 +79,7 @@ export default function Home() {
                   Download resume
                 </a>
               </div>
-              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-foreground-dim">
+              <div className="atlas-rise atlas-rise-delay-5 mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-foreground-dim">
                 <a className="inline-flex min-h-11 items-center hover:text-blueprint-primary" href={portfolioProfile.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn <span className="sr-only"> (opens in a new tab)</span></a>
                 <span className="text-border-strong" aria-hidden="true">/</span>
                 <a className="inline-flex min-h-11 items-center hover:text-blueprint-primary" href={portfolioProfile.github} target="_blank" rel="noreferrer noopener">GitHub <span className="sr-only"> (opens in a new tab)</span></a>
@@ -120,7 +120,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="selected-work" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section id="selected-work" data-reveal className="mx-auto max-w-7xl 2xl:max-w-[88rem] scroll-mt-24 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div>
             <SectionLabel>Selected work</SectionLabel>
@@ -166,13 +166,13 @@ export default function Home() {
         </BentoGrid>
       </section>
 
-      <section className="border-y border-border/80 bg-surface/35">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section data-reveal className="border-y border-border/80 bg-surface/35">
+        <div className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <HackathonSubmissions submissions={hackathonSubmissions} />
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section data-reveal className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div>
             <SectionLabel>Operating system</SectionLabel>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 sm:px-6 sm:pb-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
+      <section data-reveal className="mx-auto grid max-w-7xl 2xl:max-w-[88rem] gap-10 px-4 pb-16 sm:px-6 sm:pb-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
         <div>
           <SectionLabel>Career snapshot</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-[-0.04em] text-foreground sm:text-5xl">A working engineer moving deeper into AI systems.</h2>
@@ -233,8 +233,8 @@ export default function Home() {
         </aside>
       </section>
 
-      <section id="contact" className="border-t border-border/80 bg-surface/45">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section id="contact" data-reveal className="border-t border-border/80 bg-surface/45">
+        <div className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="atlas-paper-card max-w-4xl p-7 sm:p-10">
             <SectionLabel>Next conversation</SectionLabel>
             <h2 className="mt-4 text-3xl font-bold tracking-[-0.05em] sm:text-5xl">Looking for an AI/ML team where careful systems work has room to compound.</h2>

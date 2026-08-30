@@ -42,7 +42,7 @@ export default function CredentialsPage() {
 
   return (
     <PortfolioFrame>
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="atlas-index-rail max-w-4xl pl-6 sm:pl-8">
           <SectionLabel>Verified credentials</SectionLabel>
           <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] text-foreground sm:text-7xl">Current credentials, with status visible.</h1>

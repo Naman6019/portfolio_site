@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import ScrollReveal from "@/components/portfolio/ScrollReveal";
 import { portfolioProfile } from "@/content/portfolio";
 import { GithubIcon } from "@/components/Icons";
 
@@ -23,7 +24,7 @@ export function PortfolioHeader() {
         Skip to content
       </a>
       <header className="atlas-header sticky top-0 z-50 border-b border-border/70 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 py-3">
             <Link href="/" className="group flex min-h-11 items-center gap-3" aria-label="Naman Manocha home">
               <span className="atlas-brand-mark relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border-strong bg-surface">
@@ -99,7 +100,7 @@ export function PortfolioHeader() {
 export function PortfolioFooter() {
   return (
     <footer className="border-t border-border/80 bg-background/70 py-8">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 font-mono text-xs text-foreground-dim sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl 2xl:max-w-[88rem] flex-wrap items-center justify-between gap-4 px-4 font-mono text-xs text-foreground-dim sm:px-6 lg:px-8">
         <span>{portfolioProfile.name} · {portfolioProfile.location}</span>
         <div className="flex items-center gap-4">
           <a className="inline-flex min-h-11 items-center hover:text-signal-primary" href={portfolioProfile.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a>
@@ -114,6 +115,7 @@ export function PortfolioFooter() {
 export function PortfolioFrame({ children }: { children: ReactNode }) {
   return (
     <div className="atlas-shell min-h-screen text-foreground">
+      <ScrollReveal />
       <PortfolioHeader />
       <div className="atlas-content">
         <main id="main-content">{children}</main>

@@ -33,7 +33,7 @@ export default function ProjectsPage() {
 
   return (
     <PortfolioFrame>
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div className="atlas-index-rail max-w-3xl pl-6 sm:pl-8">
             <SectionLabel>Project archive</SectionLabel>
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
             if (projects.length === 0) return null;
 
             return (
-              <section key={status} aria-labelledby={`${status}-heading`}>
+              <section key={status} data-reveal aria-labelledby={`${status}-heading`}>
                 <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
                   <div>
                     <div className="flex flex-wrap items-center gap-3">

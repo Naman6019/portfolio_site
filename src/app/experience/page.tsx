@@ -36,7 +36,7 @@ export default function ExperiencePage() {
 
   return (
     <PortfolioFrame>
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl 2xl:max-w-[88rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="atlas-index-rail max-w-4xl pl-6 sm:pl-8">
           <SectionLabel>Career evidence</SectionLabel>
           <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] text-foreground sm:text-7xl">Experience, education, and the proof behind them.</h1>
@@ -90,7 +90,7 @@ export default function ExperiencePage() {
 
             <ol className="mt-8 space-y-8 border-l border-blueprint-primary/35 pl-6">
               {experience.map((item) => (
-                <li key={`${item.organization}-${item.role}`} className="relative">
+                <li key={`${item.organization}-${item.role}`} data-reveal className="relative">
                   <span className="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-cyan-primary" aria-hidden="true" />
                   <article className="atlas-card atlas-card-hover p-6">
                     <div className="flex flex-wrap items-start justify-between gap-4">
