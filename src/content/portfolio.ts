@@ -107,6 +107,18 @@ export const portfolioProfile = {
   logo: "/nm_logo_bold_technical.png",
 };
 
+export interface ResumeVariant {
+  label: string;
+  href: string;
+}
+
+export const resumeVariants: ResumeVariant[] = [
+  { label: "1-page", href: "/resume/Naman_Manocha_Master_1Page_Resume.pdf" },
+  { label: "AI Engineer", href: "/resume/Naman_Manocha_AI_Engineer_Resume.pdf" },
+  { label: "GenAI Engineer", href: "/resume/Naman_Manocha_GenAI_Engineer_Resume.pdf" },
+  { label: "Agentic AI / FDE", href: "/resume/Naman_Manocha_Agentic_AI_FDE_Resume.pdf" },
+];
+
 export const portfolioProjects: PortfolioProject[] = [
   {
     slug: "funders-ai",

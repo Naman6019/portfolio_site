@@ -4,7 +4,7 @@ import { ArrowUpRight, BriefcaseBusiness, FileText, GraduationCap, MapPin } from
 import type { CareerEvidence } from "@/content/portfolio";
 import { PortfolioFrame, SectionLabel } from "@/components/portfolio/PortfolioChrome";
 import { HackathonSubmissions } from "@/components/portfolio/HackathonSubmissions";
-import { achievements, credentials, education, experience, hackathonSubmissions, portfolioProfile } from "@/content/portfolio";
+import { achievements, credentials, education, experience, hackathonSubmissions, portfolioProfile, resumeVariants } from "@/content/portfolio";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -56,6 +56,21 @@ export default function ExperiencePage() {
           >
             View credentials <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
+        </div>
+        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-foreground-dim">
+          <span>Also available:</span>
+          {resumeVariants.map((variant, i) => (
+            <span key={variant.href} className="flex items-center gap-2">
+              {i > 0 ? <span aria-hidden="true">/</span> : null}
+              <a
+                href={variant.href}
+                download
+                className="inline-flex min-h-11 items-center text-foreground-muted underline decoration-border-strong underline-offset-4 transition-colors hover:text-blueprint-primary hover:decoration-blueprint-primary"
+              >
+                {variant.label}
+              </a>
+            </span>
+          ))}
         </div>
 
         <dl className="mt-12 grid gap-3 sm:grid-cols-3">
