@@ -88,19 +88,6 @@ const themeScript = `
   } catch (e) {
     document.documentElement.classList.add('dark');
   }
-  try {
-    // Gates the scroll-reveal hidden state. Set before paint so revealed
-    // content never flashes, then withdrawn if the reveal component has not
-    // confirmed it mounted -- content must never stay hidden because
-    // hydration failed.
-    var root = document.documentElement;
-    root.setAttribute('data-reveal-ready', '');
-    setTimeout(function () {
-      if (!root.hasAttribute('data-reveal-active')) {
-        root.removeAttribute('data-reveal-ready');
-      }
-    }, 2500);
-  } catch (e) {}
 })();
 `;
 

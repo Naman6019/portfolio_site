@@ -8,52 +8,52 @@ const THROTTLE_MS = 100;
 /**
  * Reveals `[data-reveal]` elements as they scroll into view.
  *
- * Uses a throttled scroll/resize check rather than IntersectionObserver. The
- * failure mode matters more than the elegance here: if the reveal mechanism
- * never runs, the page's main content stays invisible. A geometry check driven
- * by scroll events degrades safely, and the first check runs synchronously on
- * mount so anything already in view is shown immediately.
- *
- * The hidden starting state is scoped to `html[data-reveal-ready]`, set by the
- * inline script in the root layout, so content is never hidden without scripts.
+ * Elements are visible by default in the CSS -- that is what renders before
+ * this component mounts, and what stays true forever if it never does (no
+ * JS, hydration failure, anything). On mount, this component itself decides
+ * which elements are off-screen and hides only those, in the same
+ * synchronous pass that marks them as managed. There is no separate script
+ * that hides content ahead of this one running, so there is nothing for this
+ * component to race against and no window where content can be hidden
+ * without this component also being the thing that will reveal it again.
  */
 export default function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Confirms to the layout's inline script that reveal logic is running, so
-    // it does not withdraw the hidden state as a hydration-failure fallback.
-    document.documentElement.setAttribute("data-reveal-active", "");
+    const all = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    if (all.length === 0) return;
 
-    let pending = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-revealed)"),
-    );
-    if (pending.length === 0) return;
-
-    const revealAll = () => {
-      pending.forEach((el) => el.classList.add("is-revealed"));
-      pending = [];
-    };
-
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     // A zero-height viewport (some embedded/headless contexts) would put every
-    // element permanently "below the fold". Show everything rather than hide it.
-    if (
-      !window.innerHeight ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      revealAll();
+    // element permanently "below the fold". Leave everything visible instead.
+    const skip = reducedMotion || !window.innerHeight;
+
+    if (skip) {
+      all.forEach((el) => el.classList.add("js-reveal-managed"));
       return;
     }
+
+    const limit = () => window.innerHeight * 0.92;
+
+    let pending = all.filter((el) => {
+      el.classList.add("js-reveal-managed");
+      const offscreen = el.getBoundingClientRect().top >= limit();
+      if (offscreen) el.classList.add("js-reveal-hidden");
+      return offscreen;
+    });
+
+    if (pending.length === 0) return;
 
     let last = 0;
     let timer: number | undefined;
 
     const check = () => {
       last = Date.now();
-      const limit = window.innerHeight * 0.92;
+      const edge = limit();
       pending = pending.filter((el) => {
-        if (el.getBoundingClientRect().top >= limit) return true;
-        el.classList.add("is-revealed");
+        if (el.getBoundingClientRect().top >= edge) return true;
+        el.classList.remove("js-reveal-hidden");
         return false;
       });
       if (pending.length === 0) teardown();
@@ -82,7 +82,6 @@ export default function ScrollReveal() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    check();
 
     return teardown;
   }, [pathname]);
