@@ -39,6 +39,9 @@ graphify-out/
 # next.js generated types
 next-env.d.ts
 
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 # unrelated project sharing this directory
 b2b_sales_crm/
 b2b_sales_crm_submission.zip
