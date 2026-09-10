@@ -25,7 +25,7 @@
   --emerald-glow: var(--signal-glow);
   --amber-primary: var(--thermal-primary);
   --amber-glow: var(--thermal-glow);
-  --font-display-stack: "Arial Narrow", "Bahnschrift", "Segoe UI", sans-serif;
+  --font-display-stack: "Bahnschrift", "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-mono-stack: "Cascadia Mono", "JetBrains Mono", "SFMono-Regular", monospace;
   --font-sans-stack: "Segoe UI", Inter, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }

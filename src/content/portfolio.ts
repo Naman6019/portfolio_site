@@ -147,23 +147,24 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "funders-ai-reports",
-    title: "FundersAI Reports",
+    title: "FundersAI Synthesis",
     category: "AI Infrastructure",
-    status: "in-progress",
-    role: "Solo-built service extraction",
+    status: "deployed",
+    role: "Solo-built product extraction",
     dates: "2026",
     summary:
-      "A decoupled report-synthesis service designed to isolate LLM-heavy generation from the core research product.",
+      "Synthesis, FundersAI's decoupled report-synthesis product that turns official AMC factsheets and SEBI disclosures into quantitative mutual-fund comparison reports.",
     problem:
-      "Long-running report generation should be independently deployable and observable without making the main application responsible for every workload.",
+      "Long-running report generation needed to be independently deployable and observable, with every quantitative claim grounded in official disclosures rather than LLM-generated numbers.",
     build:
-      "Extracted report synthesis into a FastAPI and LangGraph service with container and Kubernetes deployment work in progress.",
+      "Extracted report synthesis into its own FastAPI and LangGraph service, deployed independently as Synthesis, computing Sharpe, Sortino, drawdown, and holding-overlap metrics deterministically from ingested AMC factsheets, with tiered subscription access.",
     outcome:
-      "A clearer service boundary for future scaling and streaming report generation.",
+      "A live, independently deployed product at synthesis.fundersai.co.in with its own subscription tiers, decoupled from the core FundersAI application.",
     limitations:
-      "No public deployment is claimed in this portfolio version.",
-    stack: ["Python", "FastAPI", "LangGraph", "Docker", "Kubernetes", "AWS EC2"],
+      "Research-only; deterministic metrics are grounded in official disclosures, but it does not provide personalized investment advice or buy/sell/hold recommendations.",
+    stack: ["Python", "FastAPI", "LangGraph", "Supabase", "Docker", "Kubernetes", "AWS EC2"],
     evidence: [
+      { label: "Open live product", href: "https://synthesis.fundersai.co.in/synthesis", kind: "live" },
       { label: "Repository area", href: "https://github.com/Naman6019/FundersAI/tree/main/microservices/reports", kind: "repository" },
     ],
     featured: false,
@@ -195,7 +196,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "talentos",
     title: "TalentOS / CareerAgent",
     category: "Agentic Systems",
-    status: "in-progress",
+    status: "deployed",
     role: "Solo-built independent project",
     dates: "2026",
     summary:
@@ -205,14 +206,40 @@ export const portfolioProjects: PortfolioProject[] = [
     build:
       "Designed multi-source collection, deterministic pre-filtering, agent evaluation, application drafting, tracing, and human approval gates.",
     outcome:
-      "A work-in-progress platform for turning scattered job information into reviewable career decisions.",
+      "A deployed platform for turning scattered job information into reviewable career decisions.",
     limitations:
-      "No public deployment is claimed; all application actions remain human-controlled.",
+      "All application actions remain human-controlled; no automated submission on a user's behalf.",
     stack: ["Python", "Google ADK", "LangGraph", "Next.js", "Firestore", "Google Cloud"],
     evidence: [
+      { label: "Open live product", href: "https://all-things-agentic--allthingsagentic-505213.asia-southeast1.hosted.app", kind: "live" },
       { label: "Read the repository", href: "https://github.com/Naman6019/all-things-agentic", kind: "repository" },
+      { label: "Watch the demo", href: "https://youtu.be/HtFh9RXXI90", kind: "verification" },
     ],
     featured: true,
+  },
+  {
+    slug: "git-resume-agent",
+    title: "GitResume Agent",
+    category: "Developer Tooling",
+    status: "deployed",
+    role: "Solo-built independent project",
+    dates: "Aug–Sep 2026",
+    summary:
+      "An autonomous, git-driven agent that keeps role-tailored resumes synchronized with real commit history, including the resumes served on this site.",
+    problem:
+      "Resumes drift out of date because updating them competes with actual engineering work, and every additional role-targeted variant multiplies that maintenance cost.",
+    build:
+      "Built a multi-agent CLI that inspects git history and repository stats, synthesizes accomplishment bullets with an LLM, runs an adversarial verifier that checks every claim against the commit history before accepting it, compiles Word and PDF resumes, and auto-publishes them to this portfolio through git hooks.",
+    outcome:
+      "Published to PyPI; a commit to any tracked project now regenerates and republishes this site's resume variants with no manual step. This portfolio is one of its live consumers.",
+    limitations:
+      "Built around this developer's own repositories, resume templates, and personas; not yet packaged for other users.",
+    stack: ["Python", "Typer", "Rich", "Pydantic", "python-docx", "Ollama", "Gemini"],
+    evidence: [
+      { label: "View on PyPI", href: "https://pypi.org/project/git-resume-agent/", kind: "live" },
+      { label: "Read the repository", href: "https://github.com/Naman6019/git-resume-agent", kind: "repository" },
+    ],
+    featured: false,
   },
   {
     slug: "question-answering-squad",
@@ -383,7 +410,7 @@ export const portfolioProjects: PortfolioProject[] = [
 
 export const experience: ExperienceRecord[] = [
   {
-    role: "AI Engineer Intern",
+    role: "AI Engineer",
     organization: "Internmo",
     type: "Internship · Remote",
     dates: "Aug 2026–Present",
