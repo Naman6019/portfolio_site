@@ -65,7 +65,7 @@ export default function ProjectsPage() {
             <span className="font-mono text-[10px] uppercase tracking-wider text-foreground-dim">{evidenceKindLabels.live} · {evidenceKindLabels.repository}</span>
           </div>
           <p className="mt-3 max-w-4xl text-sm leading-7 text-foreground-muted">
-            Screenshots are not available in this iteration. Case studies use the supplied live FundersAI route, public repositories, architecture excerpts, and explicit “not available yet” labels instead of invented product imagery or metrics.
+            FundersAI includes a dated capture of its deployed comparison view, linked to the live route. Other case studies use public links, architecture excerpts, and explicit “not available yet” labels instead of invented product imagery or metrics.
           </p>
         </aside>
 

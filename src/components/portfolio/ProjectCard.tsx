@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { evidenceKindLabels, type PortfolioProject } from "@/content/portfolio";
+import FundersAiLiveCapture from "./FundersAiLiveCapture";
 import { StatusBadge } from "./PortfolioChrome";
 
 export default function ProjectCard({ project }: { project: PortfolioProject }) {
@@ -13,6 +14,7 @@ export default function ProjectCard({ project }: { project: PortfolioProject }) 
       <h2 className="mt-5 text-xl font-bold tracking-tight text-foreground">{project.title}</h2>
       <p className="mt-2 text-sm leading-6 text-foreground-muted">{project.summary}</p>
       <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-foreground-dim">{project.role} · {project.dates}</p>
+      {project.slug === "funders-ai" ? <FundersAiLiveCapture className="mt-5" /> : null}
       <div className="mt-5 flex flex-wrap gap-1.5">
         {project.stack.slice(0, 5).map((technology) => (
           <span key={technology} className="rounded border border-border bg-background px-2 py-1 font-mono text-[10px] text-foreground-dim">{technology}</span>

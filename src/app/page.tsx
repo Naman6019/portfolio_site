@@ -6,6 +6,7 @@ import {
   StatusBadge,
 } from "@/components/portfolio/PortfolioChrome";
 import { BentoGrid } from "@/components/magicui/bento-grid";
+import FundersAiLiveCapture from "@/components/portfolio/FundersAiLiveCapture";
 import { HackathonSubmissions } from "@/components/portfolio/HackathonSubmissions";
 import { SystemMap, type SystemMapNode } from "@/components/portfolio/SystemMap";
 import {
@@ -144,6 +145,7 @@ export default function Home() {
                   <h3 className={`${index === 0 ? "text-4xl sm:text-5xl" : "text-2xl"} font-bold tracking-[-0.05em] text-foreground`}>{project.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-foreground-muted">{project.summary}</p>
                 </div>
+                {project.slug === "funders-ai" ? <FundersAiLiveCapture className="mt-7" /> : null}
                 <div className="mt-auto pt-10">
                   <div className="grid gap-5 border-t border-border/80 pt-5 sm:grid-cols-2">
                     <div>

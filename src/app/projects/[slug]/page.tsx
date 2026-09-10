@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, BadgeCheck, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { GithubIcon } from "@/components/Icons";
+import FundersAiLiveCapture from "@/components/portfolio/FundersAiLiveCapture";
 import { PortfolioFrame, SectionLabel, StatusBadge } from "@/components/portfolio/PortfolioChrome";
 import {
   evidenceKindLabels,
@@ -74,6 +75,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </header>
 
+        {project.slug === "funders-ai" ? <FundersAiLiveCapture className="mt-8" /> : null}
+
         <div className="grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
           <div className="space-y-14">
             <section aria-labelledby="context-heading" className="atlas-index-rail pl-5 sm:pl-7">
@@ -130,7 +133,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <p className="atlas-card rounded-lg p-4 text-sm leading-6 text-foreground-muted">No public evidence link is available yet. This project stays labelled as research or in progress until a reviewable source is ready.</p>
                 )}
               </div>
-              <p className="mt-4 text-xs leading-5 text-foreground-dim">Screenshots are not published in this iteration; the links above are the inspection path.</p>
+              <p className="mt-4 text-xs leading-5 text-foreground-dim">{project.slug === "funders-ai" ? "The dated live capture is shown above; use these links to inspect the current product." : "The links above are the inspection path."}</p>
             </section>
 
             <section aria-labelledby="stack-heading">

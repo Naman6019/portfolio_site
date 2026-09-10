@@ -62,7 +62,7 @@ export function PortfolioHeader() {
               <a
                 href={portfolioProfile.resume}
                 download
-                className="inline-flex min-h-11 items-center rounded-md border border-signal-primary/45 bg-signal-primary/10 px-3.5 py-2 font-mono text-xs font-bold text-signal-primary transition-colors hover:bg-signal-primary/20 focus-visible:ring-2 focus-visible:ring-signal-primary"
+                className="inline-flex min-h-11 items-center rounded-md border border-signal-primary/45 bg-signal-primary/10 px-3.5 py-2 font-mono text-xs font-bold text-foreground transition-colors hover:bg-signal-primary/20 focus-visible:ring-2 focus-visible:ring-signal-primary"
               >
                 Resume
               </a>
